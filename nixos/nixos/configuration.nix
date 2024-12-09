@@ -1,27 +1,22 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  networking.hostName = "nixos";
+  
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -44,7 +39,12 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
+  virtualisation.docker.enable = true;  
+  virtualisation.docker.rootless = {
+	enable = true;
+	setSocketVariable = true;
+   };  
+	
   # Enable the XFCE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
@@ -80,24 +80,17 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.amanfreecs = {
     isNormalUser = true;
-    description = "amanfreecs";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    description = "amanfreecs"; 
+    extraGroups = [ "networkmanager" "wheel" "kvm" "libvrtd" "docker"  ];
+    packages = with pkgs; [];
   };
 
-  # Install firefox.
   programs.firefox.enable = true;
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  	neovim 
-  	wget
+  environment.systemPackages = with pkgs; [ 
+	wget
 	go
 	gopls
 	rustup
@@ -114,8 +107,16 @@
 	containerd
 	docker
 	redshift
+	discord
+	typescript
+	gcc
+	lua-language-server
+	ruby-lsp
+	gnumake
+	libyaml
+	home-manager
   ];
-
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -141,5 +142,15 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
+  
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+    noto-fonts
+    noto-fonts-emoji
+    twemoji-color-font
+    font-awesome
+    powerline-fonts
+    powerline-symbols
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+  ];
 }
