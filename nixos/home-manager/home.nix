@@ -14,28 +14,28 @@
       enable = true;
 
       plugins = with pkgs.vimPlugins; [
+	material-nvim
         nvim-web-devicons
-        nvim-tree-lua
+        neo-tree-nvim
         telescope-nvim
+	plenary-nvim
+	nui-nvim
 	telescope-ui-select-nvim
         nvim-treesitter.withAllGrammars
         nvim-lspconfig
-	mason-nvim
+	none-ls-nvim
 	lualine-nvim
-	material-nvim
+	dashboard-nvim
+	nvim-cmp
+	cmp-nvim-lsp
+	luasnip
+	cmp_luasnip
+	friendly-snippets
      ];
 
       extraPackages = with pkgs; [
-        haskellPackages.haskell-language-server
         lua-language-server
-        nil
-        nixpkgs-fmt
-        statix
-        pyright
         nodePackages.typescript-language-server
-        nodePackages.vscode-langservers-extracted
-        ripgrep
-        fd
       ];
 
       extraConfig = ''
@@ -51,7 +51,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      window.opacity = 1.0;
+      window.opacity = 0.95;
       window.startup_mode = "Fullscreen";
 
       font = {
@@ -65,28 +65,32 @@
 
       colors = {
         primary = {
-          background = "#282828";
-          foreground = "#ebdbb2";
+          background = "#282433";
+          foreground = "#eee9fc";
         };
+	cursor = {
+	  text 	 = "#eee9fc";
+	  cursor = "#eee9fc";
+	};
         normal = {
-          black   = "#282828";
-          red     = "#cc241d";
-          green   = "#98971a";
-          yellow  = "#d79921";
-          blue    = "#458588";
-          magenta = "#b16286";
-          cyan    = "#689d6a";
-          white   = "#a89984";
+	  black   = "#282433";
+    	  red     = "#e965a5";
+    	  green   = "#b1f2a7";
+    	  yellow  = "#ebde76";
+    	  blue    = "#b1baf4";
+    	  magenta = "#e192ef";
+    	  cyan    = "#b3f4f3";
+    	  white   = "#eee9fc";
         };
         bright = {
-          black   = "#928374";
-          red     = "#fb4934";
-          green   = "#b8bb26";
-          yellow  = "#fabd2f";
-          blue    = "#83a598";
-          magenta = "#d3869b";
-          cyan    = "#8ec07c";
-          white   = "#ebdbb2";
+	  black   = "#3f3951";
+    	  red     = "#e965a5";
+    	  green   = "#b1f2a7";
+    	  yellow  = "#ebde76";
+    	  blue    = "#b1baf4";
+    	  magenta = "#e192ef";
+    	  cyan    = "#b3f4f3";
+    	  white   = "#eee9fc";
         };
       };
     };
