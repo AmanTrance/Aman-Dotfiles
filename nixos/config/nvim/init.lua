@@ -26,7 +26,36 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
 
+lspconfig.hls.setup({
+	autostart = true;
+	capabilities = capabilities
+})
+
+lspconfig.rust_analyzer.setup({
+	autostart = true,
+	settings = {
+		["rust_analyzer"] = {
+			cargo = {
+				allFeatures = true,
+				loadOutDirsFromCheck = true,
+				runBuildScripts = true,
+			},
+			checkOnSave = {
+				allFeatures = true,
+				command = "clippy",
+				extraArgs = "--no-deps",
+			},
+		},
+	},
+	capabilities = capabilities,
+})
+
 lspconfig.lua_ls.setup({
+	autostart = true,
+	capabilities = capabilities,
+})
+
+lspconfig.ocamllsp.setup({
 	autostart = true,
 	capabilities = capabilities,
 })
@@ -36,6 +65,7 @@ local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.ocamlformat,
 	},
 })
 
@@ -84,21 +114,24 @@ require("telescope").setup({
 	},
 })
 
+vim.g.material_style = "palenight"
+vim.cmd("colorscheme material")
+
 require("telescope").load_extension("ui-select")
 
 vim.keymap.set("n", "F", vim.lsp.buf.format, {})
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "A", vim.lsp.buf.code_action, {})
+vim.keymap.set("n", "G", vim.lsp.buf.definition, {})
 
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<C-c>", ":Neotree reveal toggle<CR>")
-
-vim.g.material_style = "palenight"
-vim.cmd("colorscheme material")
+vim.keymap.set("n", "<C-f>", builtin.find_files, {})
+vim.keymap.set("n", "<C-g>", builtin.live_grep, {})
+vim.keymap.set("n", "<C-c>", ":Neotree reveal toggle<CR>", {})
+vim.keymap.set("n", "<C-b>", function()
+	builtin.buffers({ sort_mru = true, ignore_current_buffer = false })
+end, {})
 
 vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "pink" })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "purple" })
+vim.api.nvim_set_hl(0, "LineNr", { fg = "lightgreen" })
 vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "pink" })

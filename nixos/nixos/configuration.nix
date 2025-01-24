@@ -38,7 +38,7 @@
 	enable = true;
 	setSocketVariable = true;
    };  
-	
+
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;	
   
@@ -69,8 +69,10 @@
 
   programs.firefox.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
+  nixpkgs.config = {
+    allowUnfree = true;	
+  };
+	
   environment.systemPackages = with pkgs; [ 
 	wget
 	go
@@ -78,7 +80,8 @@
 	rustup
 	ruby
 	ghc
-	nodejs_23
+	stack
+	cabal-install
 	python313
 	kotlin
 	libgccjit
@@ -92,20 +95,19 @@
 	discord
 	typescript
 	gcc
-	lua-language-server
 	ruby-lsp
 	gnumake
 	home-manager
 	ocaml
 	ocamlPackages.ocaml-lsp
-	haskellPackages.lsp
+	ripgrep
   ];
 
   services.openssh.enable = true;
 	
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 10000 ];
-  networking.firewall.allowedUDPPorts = [];
+  networking.firewall.allowedTCPPorts = [ 2222 ];
+  networking.firewall.allowedUDPPorts = [ ];
 
   system.stateVersion = "24.11";
   

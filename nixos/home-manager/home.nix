@@ -35,7 +35,7 @@
 
       extraPackages = with pkgs; [
         lua-language-server
-        nodePackages.typescript-language-server
+	haskell-language-server
       ];
 
       extraConfig = ''
@@ -47,6 +47,17 @@
       source = ../config/nvim;
       recursive = true;
     };
+	
+  programs.bash = {	
+	enable = true;
+
+	shellAliases = {
+	  switchN = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
+	  switchH = "home-manager switch --flake /etc/nixos#amanfreecs";
+	  flakeU = "cd /etc/nixos && sudo nix flake update";
+	  vi = "nvim";
+	};
+  };
 
   programs.alacritty = {
     enable = true;
