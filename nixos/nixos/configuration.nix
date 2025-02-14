@@ -90,8 +90,8 @@
 	git
 	postman
 	containerd
-	docker
 	redshift
+	docker
 	discord
 	typescript
 	gcc
@@ -101,12 +101,20 @@
 	ocaml
 	ocamlPackages.ocaml-lsp
 	ripgrep
+	dune_3
+	opam
   ];
+  
+  programs.bash = {	
+	interactiveShellInit = ''
+		eval $(${pkgs.opam}/bin/opam env)	
+	'';
+  };  
 
   services.openssh.enable = true;
 	
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 2222 ];
+  networking.firewall.allowedTCPPorts = [ ];
   networking.firewall.allowedUDPPorts = [ ];
 
   system.stateVersion = "24.11";
