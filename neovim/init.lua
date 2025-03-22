@@ -116,6 +116,8 @@ treeSitterConfig.setup({
 		"sql",
 		"yaml",
 		"json",
+		"erlang"
+		"ocaml"
 	},
 	sync_install = false,
 	auto_install = true,
@@ -158,6 +160,7 @@ require("mason-lspconfig").setup({
 		"ruby_lsp",
 		"sqls",
 		"yamlls",
+		"erlang-ls"
 	},
 })
 

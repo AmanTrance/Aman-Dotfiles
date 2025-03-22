@@ -7,7 +7,12 @@
   };
 
   programs.tmux = {
-	enable = true;
+    enable = true;
+    extraConfig = ''
+      set-option -g default-terminal "screen-256color"
+      set-option -a terminal-features ",alacritty:RGB"
+      set-option -sg escape-time 10
+    '';
   };
 
   programs.neovim = {
@@ -39,14 +44,14 @@
       ];
 
       extraConfig = ''
-        :luafile ~/.config/nvim/lua/init.lua
+        :luafile /home/amanfreecs/.config/nvim/lua/init.lua
       '';
     };
 
     xdg.configFile.nvim = {
       source = ../config/nvim;
       recursive = true;
-    };
+  };
 	
   programs.bash = {	
 	enable = true;

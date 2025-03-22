@@ -35,9 +35,9 @@
 
   virtualisation.docker.enable = true;  
   virtualisation.docker.rootless = {
-	enable = true;
-	setSocketVariable = true;
-   };  
+    enable = true;
+    setSocketVariable = true;
+  };  
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;	
@@ -47,7 +47,6 @@
 
   services.xserver.xkb = {
     layout = "us";
-    variant = "";
   };
 
   services.printing.enable = true;
@@ -66,8 +65,6 @@
     description = "amanfreecs"; 
     extraGroups = [ "networkmanager" "wheel" "kvm" "libvrtd" "docker" ];
   };
-
-  programs.firefox.enable = true;
 
   nixpkgs.config = {
     allowUnfree = true;	
@@ -103,12 +100,16 @@
 	ripgrep
 	dune_3
 	opam
+	brave
+	erlang
+	rebar3
+	erlang-ls
   ];
   
   programs.bash = {	
-	interactiveShellInit = ''
-		eval $(${pkgs.opam}/bin/opam env)	
-	'';
+    interactiveShellInit = ''
+      eval $(${pkgs.opam}/bin/opam env)	
+    '';
   };  
 
   services.openssh.enable = true;
