@@ -104,6 +104,8 @@
 	erlang
 	rebar3
 	erlang-ls
+	sbcl
+	haskell-language-server
   ];
   
   programs.bash = {	
