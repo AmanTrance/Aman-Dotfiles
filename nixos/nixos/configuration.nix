@@ -40,7 +40,7 @@
   };  
 
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;	
+  hardware.bluetooth.powerOnBoot = false;	
   
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
@@ -50,8 +50,10 @@
   };
 
   services.printing.enable = true;
-
+	
+  hardware.graphics.enable = true;
   hardware.pulseaudio.enable = false;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -92,7 +94,6 @@
 	discord
 	typescript
 	gcc
-	ruby-lsp
 	gnumake
 	home-manager
 	ocaml
@@ -103,9 +104,7 @@
 	brave
 	erlang
 	rebar3
-	erlang-ls
 	sbcl
-	haskell-language-server
   ];
   
   programs.bash = {	
