@@ -40,10 +40,12 @@
   };  
 
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = false;	
+  hardware.bluetooth.powerOnBoot = true;	
   
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.desktopManager = {
+    xfce.enable  = true;
+  };
 
   services.xserver.xkb = {
     layout = "us";
@@ -57,9 +59,12 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     pulse.enable = true;
+    jack.enable = true;
   };
 
   users.users.amanfreecs = {
@@ -70,41 +75,41 @@
 
   nixpkgs.config = {
     allowUnfree = true;	
-  };
+  };  
 	
   environment.systemPackages = with pkgs; [ 
-	wget
-	go
-	gopls
-	rustup
-	ruby
-	ghc
-	stack
-	cabal-install
-	python313
-	kotlin
-	libgccjit
-	lua
-	vscode
-	git
-	postman
-	containerd
-	redshift
-	docker
-	discord
-	typescript
-	gcc
-	gnumake
-	home-manager
-	ocaml
-	ocamlPackages.ocaml-lsp
-	ripgrep
-	dune_3
-	opam
-	brave
-	erlang
-	rebar3
-	sbcl
+    wget
+    go
+    gopls
+    rustup
+    ruby
+    ghc
+    stack
+    cabal-install
+    python313
+    kotlin
+    libgccjit
+    lua
+    vscode
+    git
+    postman
+    containerd
+    redshift
+    docker
+    discord
+    typescript
+    gcc
+    gnumake
+    home-manager
+    ocaml
+    ocamlPackages.ocaml-lsp
+    ripgrep
+    dune_3
+    opam
+    brave
+    erlang
+    rebar3
+    sbcl
   ];
   
   programs.bash = {	
