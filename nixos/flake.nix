@@ -1,14 +1,14 @@
 {
-  description = "Nixos config flake";
+  description = "Amanfreecs's Flake";
 
   inputs = {
     nixpkgs = {
-	url = "github:nixos/nixpkgs/nixos-24.11";
+      url = "github:nixos/nixpkgs/nixos-24.11";
     };	
 
     home-manager = {
-    	url = "github:nix-community/home-manager/release-24.11";
-	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -17,7 +17,7 @@
       system = "x86_64-linux";
 
       modules = [
-        ./nixos/configuration.nix
+        ./nixos
       ];
     };
 	
@@ -25,7 +25,7 @@
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
       modules = [
-        ./home-manager/home.nix
+        ./home-manager
       ];
     };
   };
