@@ -5,7 +5,6 @@
     [ 
       ./hardware
       ./system
-      ./variables
       ./packages
     ];
 

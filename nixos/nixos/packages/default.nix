@@ -5,13 +5,14 @@
     wget
     go
     gopls
-    rustup
+    rustup 
     ruby
     ghc
     stack
     cabal-install
     python314
     kotlin
+    libgcc
     libgccjit
     zlib
     lua
@@ -23,8 +24,8 @@
     docker
     discord
     typescript
-    gcc
     gnumake
+    nodejs_23
     home-manager
     ocaml
     ocamlPackages.ocaml-lsp
