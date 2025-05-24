@@ -25,7 +25,7 @@
     discord
     typescript
     gnumake
-    nodejs_23
+    nodejs_24
     home-manager
     ocaml
     ocamlPackages.ocaml-lsp
@@ -52,6 +52,7 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    nerd-fonts.hasklug
+    nerd-fonts.symbols-only
   ];
 }
