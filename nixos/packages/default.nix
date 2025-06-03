@@ -14,7 +14,7 @@
     kotlin
     libgcc
     libgccjit
-    zlib
+    gcc
     lua
     vscode
     git

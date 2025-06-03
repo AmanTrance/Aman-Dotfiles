@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }@inputs : 
+{
 
   home = {
     username = "amanfreecs";
@@ -38,11 +39,6 @@
     friendly-snippets
   ];
 
-  extraPackages = with pkgs; [
-    lua-language-server
-    haskell-language-server
-  ];
-
   extraConfig = ''
     :luafile /home/amanfreecs/.config/nvim/lua/init.lua
   '';
@@ -71,7 +67,7 @@
       window.startup_mode = "Fullscreen";
 
       font = {
-        size = 13.0;
+        size = 18.0;
         builtin_box_drawing = true;
         normal = {
           family = "JetBrains Mono";
