@@ -18,6 +18,7 @@
     lua
     vscode
     git
+    protobuf
     postman
     containerd
     redshift
@@ -36,6 +37,7 @@
     erlang
     rebar3
     sbcl
+    scala
   ];
 
   programs.bash = {	
