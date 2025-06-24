@@ -65,6 +65,11 @@ lspconfig.ocamllsp.setup({
 	capabilities = capabilities,
 })
 
+lspconfig.metals.setup({
+	autostart = true,
+	capabilities = capabilities,
+})
+
 local null_ls = require("null-ls")
 
 null_ls.setup({

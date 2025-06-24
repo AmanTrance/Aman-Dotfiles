@@ -37,7 +37,8 @@
     erlang
     rebar3
     sbcl
-    scala
+    sbt
+    metals
   ];
 
   programs.bash = {	
