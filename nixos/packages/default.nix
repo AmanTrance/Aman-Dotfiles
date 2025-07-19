@@ -24,6 +24,7 @@
     redshift
     docker
     discord
+    slack
     typescript
     gnumake
     nodejs_24
