@@ -76,6 +76,15 @@ null_ls.setup({
 	sources = { },
 })
 
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	update_in_insert = false,
+	underline = true,
+	severity_sort = false,
+	float = true,
+})
+
 local dashboard = require("dashboard")
 
 dashboard.setup({
