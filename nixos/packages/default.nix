@@ -40,6 +40,7 @@
     sbcl
     sbt
     metals
+    haskell-language-server
   ];
 
   programs.bash = {	
