@@ -13,7 +13,6 @@
     python314
     kotlin
     libgcc
-    libgccjit
     gcc
     lua
     vscode
