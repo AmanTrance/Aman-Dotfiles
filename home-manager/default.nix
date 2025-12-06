@@ -19,29 +19,29 @@
   programs.neovim = {
     enable = true;
 
-  plugins = with pkgs.vimPlugins; [
-    material-nvim
-    nvim-web-devicons
-    neo-tree-nvim
-    telescope-nvim
-    plenary-nvim
-    nui-nvim
-    telescope-ui-select-nvim
-    nvim-treesitter.withAllGrammars
-    nvim-lspconfig
-    none-ls-nvim
-    lualine-nvim
-    dashboard-nvim
-    nvim-cmp
-    cmp-nvim-lsp
-    luasnip
-    cmp_luasnip
-    friendly-snippets
-  ];
+    plugins = with pkgs.vimPlugins; [
+      material-nvim
+      nvim-web-devicons
+      neo-tree-nvim
+      telescope-nvim
+      plenary-nvim
+      nui-nvim
+      telescope-ui-select-nvim
+      nvim-treesitter.withAllGrammars
+      nvim-lspconfig
+      none-ls-nvim
+      lualine-nvim
+      dashboard-nvim
+      nvim-cmp
+      cmp-nvim-lsp
+      luasnip
+      cmp_luasnip
+      friendly-snippets
+    ];
 
-  extraConfig = ''
-    :luafile /home/amanfreecs/.config/nvim/lua/init.lua
-  '';
+    extraConfig = ''
+      :luafile /home/amanfreecs/.config/nvim/lua/init.lua
+    '';
   };
 
   xdg.configFile.nvim = {
