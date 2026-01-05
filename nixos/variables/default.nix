@@ -1,8 +1,8 @@
 { pkgs, ... }@inputs :
 {
-  environment.sessionVariables = {
+  environment.variables = with pkgs; {
     CC = ''
-      gcc
+      ${gcc.outPath}/bin/gcc
     '';
   };
 }
