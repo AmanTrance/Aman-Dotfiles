@@ -24,14 +24,12 @@ require("lualine").setup({
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local lspconfig = require("lspconfig")
-
-lspconfig.hls.setup({
+vim.lsp.config("hls", {
 	autostart = true;
 	capabilities = capabilities
 })
 
-lspconfig.rust_analyzer.setup({
+vim.lsp.config("rust_analyzer", {
 	autostart = true,
 	settings = {
 		["rust_analyzer"] = {
@@ -50,25 +48,32 @@ lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 })
 
-lspconfig.lua_ls.setup({
+vim.lsp.config("lua_ls", {
 	autostart = true,
 	capabilities = capabilities,
 })
 
-lspconfig.erlangls.setup({
+vim.lsp.config("erlangls", {
 	autostart = true,
 	capabilities = capabilities,
 })
 
-lspconfig.ocamllsp.setup({
+vim.lsp.config("ocamllsp", {
 	autostart = true,
 	capabilities = capabilities,
 })
 
-lspconfig.metals.setup({
+vim.lsp.config("metals", {
 	autostart = true,
 	capabilities = capabilities,
 })
+
+vim.lsp.enable("hls")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("ocamllsp")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("metals")
+vim.lsp.enable("erlangls")
 
 local null_ls = require("null-ls")
 

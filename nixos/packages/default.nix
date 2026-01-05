@@ -8,12 +8,11 @@
     rustup 
     ruby
     ghc
-    stack
     cabal-install
     python314
     kotlin
     libgcc
-    gcc
+    libgccjit
     lua
     vscode
     git
@@ -49,14 +48,9 @@
   };
 
   fonts.packages = with pkgs; [
-    jetbrains-mono
-    noto-fonts
-    noto-fonts-color-emoji
-    twemoji-color-font
     font-awesome
-    powerline-fonts
-    powerline-symbols
     nerd-fonts.hasklug
     nerd-fonts.symbols-only
+    nerd-fonts.jetbrains-mono
   ];
 }

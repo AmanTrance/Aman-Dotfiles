@@ -9,9 +9,9 @@
 
   programs.tmux = {
     enable = true;
+    terminal = "alacritty";
     extraConfig = ''
-      set-option -g default-terminal "screen-256color"
-      set-option -a terminal-features ",alacritty:RGB"
+      set-option -ag terminal-features ",alacritty:RGB"
       set-option -sg escape-time 10
     '';
   };
@@ -38,10 +38,6 @@
       cmp_luasnip
       friendly-snippets
     ];
-
-    extraConfig = ''
-      :luafile /home/amanfreecs/.config/nvim/lua/init.lua
-    '';
   };
 
   xdg.configFile.nvim = {
@@ -55,7 +51,7 @@
     shellAliases = {
       switchN = "sudo nixos-rebuild switch --flake /etc/nixos#nixos";
       switchH = "home-manager switch --flake /etc/nixos#amanfreecs";
-      flakeU = "cd /etc/nixos && sudo nix flake update";
+      switchU = "cd /etc/nixos && sudo nix flake update";
       vi = "nvim";
     };
   };
@@ -70,7 +66,7 @@
         size = 18.0;
         builtin_box_drawing = true;
         normal = {
-          family = "JetBrains Mono";
+          family = "JetBrainsMono Nerd Font";
           style = "Bold";
         };
       };
