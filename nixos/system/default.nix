@@ -3,6 +3,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+
   networking = { 
     hostName = "nixos";
 
@@ -12,7 +15,7 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ ];
+      allowedTCPPorts = [ 22 43307 43308 ];
       allowedUDPPorts = [ ];
     };
   };
@@ -64,6 +67,7 @@
     };
 
     openssh.enable = true;
+    flatpak.enable = true;
   };
 
   virtualisation.docker = {

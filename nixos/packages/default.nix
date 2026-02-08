@@ -48,6 +48,8 @@
     '';
   };
 
+  programs.nix-ld.enable = true;
+
   fonts.packages = with pkgs; [
     font-awesome
     nerd-fonts.hasklug
