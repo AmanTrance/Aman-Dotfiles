@@ -9,7 +9,7 @@
     ruby
     ghc
     cabal-install
-    python314
+    python315
     kotlin
     libgcc
     libgccjit
@@ -31,7 +31,7 @@
     ocaml
     ocamlPackages.ocaml-lsp
     ripgrep
-    dune_3
+    dune
     opam
     brave
     erlang
